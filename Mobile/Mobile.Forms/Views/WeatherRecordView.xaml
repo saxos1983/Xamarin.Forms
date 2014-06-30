@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Mobile.Forms.Converters;assembly=Mobile.Forms"
+					   x:Class="Mobile.Forms.Views.WeatherRecordView">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:DoubleToCelsiusConverter x:Key="celsiusConverter" />
+      <local:DoubleToPressureConverter x:Key="pressureConverter" />
+      <local:IntToHumidityConverter x:Key="humidityConverter" />
+      <local:LongToDateTimeConverter x:Key="datetimeConverter" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  
+  <StackLayout Spacing="10">
+    <Label Text="{Binding WeatherRecord.StationId}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{Binding WeatherRecord.CityName}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{Binding WeatherRecord.TimeStamp, Converter={StaticResource datetimeConverter}}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{Binding WeatherRecord.Temperature, Converter={StaticResource celsiusConverter}}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{Binding WeatherRecord.Pressure, Converter={StaticResource pressureConverter}}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{Binding WeatherRecord.Humidity, Converter={StaticResource humidityConverter}}" VerticalOptions="Center" HorizontalOptions="Center" />
+  </StackLayout>
+	
+</ContentPage>
